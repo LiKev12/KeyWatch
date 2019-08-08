@@ -44,7 +44,7 @@ class Dashboard extends Component{
                 for (var i = 0; i < data.length; i++) {
                     let obj = data[i];
 
-                    time.push(obj.time[1]);
+                    time.push(obj.time);
                     hold.push(obj.hold);
                     latency.push(obj.latency);
                 }

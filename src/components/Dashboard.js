@@ -17,16 +17,14 @@ class Dashboard extends Component{
                 datarevision: 0,
             },
         }
-        this.REFRESH_TIME = 1000;
+        this.REFRESH_TIME = Infinity; // 1000;
     }
     
     async componentDidMount() {
 
-        try {
-            setInterval(async () => {
 
-                console.log("get")
-
+        console.log("get")
+        console.log(Date.now())
                 const response = await fetch(this.urlData,
                     {
                         headers : { 
@@ -37,25 +35,72 @@ class Dashboard extends Component{
 
                 const data = await response.json();
 
-                console.log(data)
+                //console.log(data)
 
                 const { time, hold, latency, layout } = this.state;
 
-                for (var i = 0; i < data.length; i++) {
-                    let obj = data[i];
+                // for (var i = 0; i < data.length; i++) {
+                //     let obj = data[i];
 
-                    time.push(obj.time);
-                    hold.push(obj.hold);
-                    latency.push(obj.latency);
-                }
+                //     time.push(obj.time);
+                //     hold.push(obj.hold);
+                //     latency.push(obj.latency);
+                // }
+
+                console.log(data.time)
+
+                this.setState({ 
+                    time: data.time,
+                    hold: data.hold,
+                    latency: data.latency
+                });
+
+                //time.concat(data.time);
+                //hold.concat(data.hold);
+                //latency.concat(data.latency);
+
+                console.log(Date.now())
+
+                console.log(time)
+                console.log(hold)
+                console.log(latency)
 
                 this.setState({ revision: this.state.revision + 1 });
                 layout.datarevision = this.state.revision + 1;
+        // try {
+        //     setInterval(async () => {
+
+        //         console.log("get")
+
+        //         const response = await fetch(this.urlData,
+        //             {
+        //                 headers : { 
+        //                     'Content-Type': 'application/json',
+        //                     'Accept': 'application/json'
+        //                 }
+        //             });
+
+        //         const data = await response.json();
+
+        //         console.log(data)
+
+        //         const { time, hold, latency, layout } = this.state;
+
+        //         for (var i = 0; i < data.length; i++) {
+        //             let obj = data[i];
+
+        //             time.push(obj.time);
+        //             hold.push(obj.hold);
+        //             latency.push(obj.latency);
+        //         }
+
+        //         this.setState({ revision: this.state.revision + 1 });
+        //         layout.datarevision = this.state.revision + 1;
                 
-            }, this.REFRESH_TIME);
-          } catch(e) {
-            console.log(e);
-        }
+        //     }, this.REFRESH_TIME);
+        //   } catch(e) {
+        //     console.log(e);
+        // }
     }
 
     render() {
@@ -72,7 +117,7 @@ class Dashboard extends Component{
                    {
                      x: this.state.time,
                      y: this.state.hold,
-                     type: 'scatter',
+                     type: 'scattergl',
                      mode: 'markers',
                      marker: {color: 'red'},
                    }
@@ -87,7 +132,7 @@ class Dashboard extends Component{
                    {
                      x: this.state.time,
                      y: this.state.latency,
-                     type: 'scatter',
+                     type: 'scattergl',
                      mode: 'markers',
                      marker: {color: 'blue'},
                    }

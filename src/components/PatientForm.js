@@ -1,87 +1,75 @@
-import React, { Component } from 'react';
-import {Radio, RadioGroup, Textfield, IconButton, Chip} from 'react-mdl';
+import React, { Component } from 'react'
+import FormUserDetails from './FormUserDetails';
+import FormPersonalDetails from './FormPersonalDetails';
+import FormConfirm from './FormConfirm';
+import FormSuccess from './FormSuccess';
 
-class PatientForm extends Component{
+export class PatientForm extends Component {
+    state = {
+        step: 1,
+        firstName: '',
+        lastName: '',
+        email: '',
+        age: '',
+        gender: '',
+        bio: ''
+    }
+
+    // Proceed to next step
+    nextStep = () => {
+        const { step } = this.state;
+        this.setState({
+            step: step + 1
+        });
+    }
+
+    // Go back to prev step
+    prevStep = () => {
+        const { step } = this.state;
+        this.setState({
+            step: step + 1
+        });
+    }
+
+    // Handle fields change
+    handleChange = input => e => {
+        this.setState({[input]: e.target.value});
+    }
+
     render() {
-        return (
-            <div className="PatientForm">
-                <h1 style={{textAlign: "center"}}>Tell us more about yourself</h1>
-                <h6><b>Help us help you </b></h6>
-
-                <h5><b>Personal Information</b></h5>
-                <hr/>
-
-                <Textfield
-                    onChange={() => {}}
-                    label="First Name"
-                    style={{width: '200px', marginRight:'30px'}}
-                    floatingLabel={true}
-                    required={true}
+        const { step } = this.state;
+        const { firstName, lastName, email, age, gender, bio} = this.state;
+        const values = { firstName, lastName, email, age, gender, bio};
+        switch(step) {
+            case 1:
+                return (
+                    <FormUserDetails
+                    nextStep={this.nextStep}
+                    handleChange = {this.handleChange}
+                    values={values}
                 />
-                <Textfield
-                    onChange={() => {}}
-                    label="Last Name"
-                    style={{width: '200px'}}
-                    floatingLabel={true}
-                    required={true}
+                )
+            case 2:
+                return (
+                    <FormPersonalDetails
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
+                        handleChange = {this.handleChange}
+                        values={values}
                 />
-                <RadioGroup name="demo" value="Hide">
-                    <Radio value="Male" ripple>Male</Radio>
-                    <br></br>
-                    <Radio value="Female">Female</Radio>
-                    <br></br>
-                    <Radio value="Hide">Prefer not to say</Radio>
-                </RadioGroup>
-                <Textfield
-                    onChange={() => {}}
-                    label="Date of Birth"
-                    style={{width: '200px'}}
-                    floatingLabel={true}
-                    required={true}
-                />
-                <IconButton name="event note" />
+                )
+            case 3:
+                return (
+                    <FormConfirm
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
+                        values={values}
+                    />
+                )
+            case 4:
+                return <FormSuccess />
 
-                <h5><b>Family Medical History</b></h5>
-                <hr/>
-                <div style={{'fontSize': '24px'}}>
-                Grandparents:  .
-                <Chip onClose={e => { alert('Close icon clicked!'); }}>Alzheimer's</Chip> . 
-                <Chip onClose={e => { alert('Close icon clicked!'); }}>Diabetes</Chip> . 
-                <Chip onClose={e => { alert('Close icon clicked!'); }}>Dementia</Chip>
-                <br></br>
-                <br></br>
-
-                Parents:  .
-                <Chip onClose={e => { alert('Close icon clicked!'); }}>Mood Disorder</Chip> . 
-                <Chip onClose={e => { alert('Close icon clicked!'); }}>High Blood Pressure</Chip>
-                </div>
-
-                <h5><b>Drug Information</b></h5>
-                <hr/>
-                <div style={{'fontSize': '24px'}}>
-                Illments:  .
-                <Chip onClose={e => { alert('Close icon clicked!'); }}>Depression</Chip> . 
-                <Chip onClose={e => { alert('Close icon clicked!'); }}>Mood Swings</Chip> . 
-                <Chip onClose={e => { alert('Close icon clicked!'); }}>Trouble Sleeping</Chip>
-                <br></br>
-                <br></br>
-
-                Prescriptions:  .
-                <Chip onClose={e => { alert('Close icon clicked!'); }}>Risperidone</Chip> . 
-                <Chip onClose={e => { alert('Close icon clicked!'); }}>Prozac</Chip>
-                </div>
-
-                <h5><b>Symptom Information</b></h5>
-                <hr/>
-                <div style={{'fontSize': '24px'}}>
-                <Chip onClose={e => { alert('Close icon clicked!'); }}>Tremors</Chip> . 
-                <Chip onClose={e => { alert('Close icon clicked!'); }}>Constipation</Chip> . 
-                <Chip onClose={e => { alert('Close icon clicked!'); }}>Stiffness</Chip>
-                <br></br>
-                <br></br>
-                </div>
-            </div>
-        )
+        }
     }
 }
 

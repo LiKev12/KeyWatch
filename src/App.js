@@ -14,17 +14,17 @@ function App() {
             <Header className="header-color"title="Welcome!" scroll>
                 <Navigation>
                     <Link to="/">Dashboard</Link>
-                    <Link to="/patientform">PatientForm</Link>
-                    <Link to="/patientview">PatientView</Link>
-                    <Link to="/doctorview">DoctorView</Link>
+                    <Link to="/patientform">Patient Form</Link>
+                    <Link to="/patientview">Patient View</Link>
+                    <Link to="/doctorview">Doctor View</Link>
                 </Navigation>
             </Header>
             <Drawer title="KeyWatch">
                 <Navigation>
                     <Link to="/">Dashboard</Link>
-                    <Link to="/patientform">PatientForm</Link>
-                    <Link to="/patientview">PatientView</Link>
-                    <Link to="/doctorview">DoctorView</Link>
+                    <Link to="/patientform">Patient Form</Link>
+                    <Link to="/patientview">Patient View</Link>
+                    <Link to="/doctorview">Doctor View</Link>
                 </Navigation>
             </Drawer>
             <Content>

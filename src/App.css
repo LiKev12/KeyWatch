@@ -117,6 +117,7 @@
     width: 90%;
     height: 200 px;
     padding: 3em;
+    /* background-color: #1F2833; */
   }
 
 
@@ -164,9 +165,9 @@
 }
 
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #1F2833; /* Green */
     border: none;
-    color: white;
+    color: #1F2833;
     padding: 16px 32px;
     text-align: center;
     text-decoration: none;
@@ -179,14 +180,17 @@
   }
 
   .button2 {
-    background-color: white; 
-    color: black; 
-    border: 2px solid #008CBA;
+    background-color: #66FCF1; 
+    color: #1F2833;
+    /* border: 1px solid #1F2833; */
+    font-weight: bold;
   }
   
   .button2:hover {
-    background-color: #008CBA;
-    color: white;
+    background-color: #1F2833;
+    color: #66FCF1;
+    border: 1px solid #66FCF1;
+    font-weight: bold;
   }
 
   .toggleTime {

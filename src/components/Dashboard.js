@@ -23,9 +23,6 @@ class Dashboard extends Component{
         }
         this.REFRESH_TIME = 30000;
 
-
-        // this.handleToggleTimeView = this.handleToggleTimeView.bind(this);
-
         this.handleToggleTimeViewDay = this.handleToggleTimeViewDay.bind(this);
         this.handleToggleTimeViewWeek = this.handleToggleTimeViewWeek.bind(this);
         this.handleToggleTimeViewMonth = this.handleToggleTimeViewMonth.bind(this);
@@ -34,19 +31,10 @@ class Dashboard extends Component{
 
     }
 
-    // handleToggleTimeView() {
-    //     console.log('hi');
-    //     this.setState((event) => {
-    //         return {
-    //             timeView : event.target.value
-    //         };
-    //     })
-    // }
     handleToggleTimeViewDay() {
-        let end = moment().format('YYYY-MM-DD');
-        let start = end;
-        let timeQuery = 'http://127.0.0.1:5000?start_date=' + start + '&end_date=' + end;
-        console.log('start', start, 'end', end);
+        let start = moment().format('YYYY-MM-DD');
+        let timeQuery = 'http://127.0.0.1:5000?start_date=' + start;
+        console.log('start', start);
         this.setState(() => {
             return {
                 revision: this.state.revision + 1,
@@ -91,9 +79,8 @@ class Dashboard extends Component{
     }
     handleToggleTimeViewAll() {
         let end = moment().format('YYYY-MM-DD');
-        let start = moment().subtract(1, 'month').format('YYYY-MM-DD');
-        let timeQuery = 'http://127.0.0.1:5000?start_date=' + start + '&end_date=' + end;
-        console.log('start', start, 'end', end);
+        let timeQuery = 'http://127.0.0.1:5000?end_date=' + end;
+        console.log('end', end);
         this.setState(() => {
             return {
                 timeView : timeQuery

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 export class FormSuccess extends Component {
@@ -17,12 +16,10 @@ export class FormSuccess extends Component {
     render() {
         console.log("FormSuccess");
         return (
-            <MuiThemeProvider>
                 <React.Fragment>
                     <h1>Thank you for your submission</h1>
                     <p>You will get an email with further instructions.</p>
                 </React.Fragment>
-            </MuiThemeProvider>
         )
     }
 

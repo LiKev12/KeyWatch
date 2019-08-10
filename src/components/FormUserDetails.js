@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 export class FormUserDetails extends Component {
     continue = e => {
@@ -13,7 +12,6 @@ export class FormUserDetails extends Component {
         console.log("FormUserDetails");
         const { values, handleChange } = this.props;
         return (
-            <MuiThemeProvider>
                 <React.Fragment>
                     <TextField 
                         hintText="Enter your First Name"
@@ -36,14 +34,13 @@ export class FormUserDetails extends Component {
                         defaultValue={values.email}
                     />
                     <br/>
-                    <RaisedButton
+                    <Button
                         label="Continue"
                         primary={true}
                         style={{margin:50}}
                         onClick={this.continue}
                     />
                 </React.Fragment>
-            </MuiThemeProvider>
         )
     }
 

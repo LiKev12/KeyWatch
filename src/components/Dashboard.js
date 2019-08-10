@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Plot from 'react-plotly.js';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import moment from 'moment';
 
 
 class Dashboard extends Component{
@@ -7,7 +10,7 @@ class Dashboard extends Component{
     constructor(props) {
         super(props)
 
-        this.urlData = 'http://127.0.0.1:5000/';
+        this.urlData = 'http://127.0.0.1:5000';
         this.state = {
             time: [],
             hold: [],
@@ -16,9 +19,88 @@ class Dashboard extends Component{
             layout: {
                 datarevision: 0,
             },
+            timeView: 'http://127.0.0.1:5000'
         }
         this.REFRESH_TIME = 1000;
+
+
+        // this.handleToggleTimeView = this.handleToggleTimeView.bind(this);
+
+        this.handleToggleTimeViewDay = this.handleToggleTimeViewDay.bind(this);
+        this.handleToggleTimeViewWeek = this.handleToggleTimeViewWeek.bind(this);
+        this.handleToggleTimeViewMonth = this.handleToggleTimeViewMonth.bind(this);
+        this.handleToggleTimeViewYear = this.handleToggleTimeViewYear.bind(this);
+        this.handleToggleTimeViewAll = this.handleToggleTimeViewAll.bind(this);
+
     }
+
+    // handleToggleTimeView() {
+    //     console.log('hi');
+    //     this.setState((event) => {
+    //         return {
+    //             timeView : event.target.value
+    //         };
+    //     })
+    // }
+    handleToggleTimeViewDay() {
+        let end = moment().format('YYYY-MM-DD');
+        let start = end;
+        let timeQuery = 'http://127.0.0.1:5000?start_date=' + start + '&end_date=' + end;
+        console.log('start', start, 'end', end);
+        this.setState(() => {
+            return {
+                revision: this.state.revision + 1,
+                timeView : timeQuery
+            };
+        })
+    }
+
+    handleToggleTimeViewWeek() {
+        let end = moment().format('YYYY-MM-DD');
+        let start = moment().subtract(7, 'days').format('YYYY-MM-DD');
+        let timeQuery = 'http://127.0.0.1:5000?start_date=' + start + '&end_date=' + end;
+        console.log('start', start, 'end', end);
+        this.setState(() => {
+            return {
+                timeView : timeQuery
+            };
+        })
+    }
+    handleToggleTimeViewMonth() {
+        let end = moment().format('YYYY-MM-DD');
+        let start = moment().subtract(1, 'months').format('YYYY-MM-DD');
+        let timeQuery = 'http://127.0.0.1:5000?start_date=' + start + '&end_date=' + end;
+        console.log('start', start, 'end', end);
+        this.setState(() => {
+            return {
+                timeView : timeQuery
+            };
+        })
+    }
+    handleToggleTimeViewYear() {
+        let end = moment().format('YYYY-MM-DD');
+        let start = moment().subtract(1, 'years').format('YYYY-MM-DD');
+        let timeQuery = 'http://127.0.0.1:5000?start_date=' + start + '&end_date=' + end;
+        console.log('start', start, 'end', end);
+        this.setState(() => {
+            return {
+                timeView : timeQuery
+            };
+        })
+    }
+    handleToggleTimeViewAll() {
+        let end = moment().format('YYYY-MM-DD');
+        let start = moment().subtract(1, 'month').format('YYYY-MM-DD');
+        let timeQuery = 'http://127.0.0.1:5000?start_date=' + start + '&end_date=' + end;
+        console.log('start', start, 'end', end);
+        this.setState(() => {
+            return {
+                timeView : timeQuery
+            };
+        })
+    }
+
+
     
     async componentDidMount() {
 
@@ -27,7 +109,8 @@ class Dashboard extends Component{
 
                 console.log("get")
 
-                const response = await fetch(this.urlData,
+                // const response = await fetch(this.urlData,
+                const response = await fetch(this.state.timeView,
                     {
                         headers : { 
                             'Content-Type': 'application/json',
@@ -59,13 +142,20 @@ class Dashboard extends Component{
     }
 
     render() {
-
         return (
             <div className="Dashboard">
                 <h1> Hello, Jackie.</h1>
                 <h4> <b>Today is August 4, 2019.</b></h4>
                 <br></br><br></br>
                 <p>See your recent activity.</p>
+
+                <div className="toggleTime">
+                    <button className="button button2" id="DayView" value="Day" onClick = {this.handleToggleTimeViewDay}>Day</button>
+                    <button className="button button2" id="WeekView" value="Week" onClick = {this.handleToggleTimeViewWeek}>Week</button>
+                    <button className="button button2" id="MonthyView" value="Month" onClick = {this.handleToggleTimeViewMonth}>Month</button>
+                    <button className="button button2" id="YearView" value="Year" onClick = {this.handleToggleTimeViewYear}>Year</button>
+                    <button className="button button2" id="AllView" value="ALl" onClick = {this.handleToggleTimeViewAll}>All</button>
+                </div>
 
                 <Plot
                 data={[
@@ -103,15 +193,3 @@ class Dashboard extends Component{
 }
 
 export default Dashboard;
-
-// class Dashboard extends Component{
-//     render() {
-//         return (
-//             <div>
-//                 <h1>Dashboard Page</h1>
-//             </div>
-//         )
-//     }
-// }
-
-// export default Dashboard;

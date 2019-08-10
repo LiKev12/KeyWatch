@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { List, ListItem }from 'material-ui/List';
-import RaisedButton from 'material-ui/RaisedButton';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import Button from '@material-ui/core/Button';
 
 export class FormConfirm extends Component {
     continue = e => {
@@ -19,7 +19,6 @@ export class FormConfirm extends Component {
         console.log("FormConfirm");
         const { values: { firstName, lastName, email, age, gender, bio} } = this.props;
         return (
-            <MuiThemeProvider>
                 <React.Fragment>
                     <List>
                         <ListItem primaryText="First Name" secondaryText = { firstName } />
@@ -30,20 +29,19 @@ export class FormConfirm extends Component {
                         <ListItem primaryText="Bio" secondaryText = { bio } />
                     </List>
                     <br />
-                    <RaisedButton
+                    <Button
                         label="Confirm & Continue"
                         primary={true}
                         style={{margin:50}}
                         onClick={this.continue}
                     />
-                    <RaisedButton
+                    <Button
                         label="Back"
                         primary={false}
                         style={{margin:50}}
                         onClick={this.back}
                     />
                 </React.Fragment>
-            </MuiThemeProvider>
         )
     }
 

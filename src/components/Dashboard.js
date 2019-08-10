@@ -21,7 +21,7 @@ class Dashboard extends Component{
             },
             timeView: 'http://127.0.0.1:5000'
         }
-        this.REFRESH_TIME = 1000;
+        this.REFRESH_TIME = 30000;
 
 
         // this.handleToggleTimeView = this.handleToggleTimeView.bind(this);
@@ -53,6 +53,7 @@ class Dashboard extends Component{
                 timeView : timeQuery
             };
         })
+        this.state.layout.datarevision = this.state.revision + 1;
     }
 
     handleToggleTimeViewWeek() {

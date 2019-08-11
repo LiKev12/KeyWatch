@@ -19,7 +19,7 @@ class Dashboard extends Component{
             },
             timeView: 'http://127.0.0.1:5000'
         }
-        this.REFRESH_TIME = 30000;
+        this.REFRESH_TIME = 2000;
 
         this.handleToggleTimeViewDay = this.handleToggleTimeViewDay.bind(this);
         this.handleToggleTimeViewWeek = this.handleToggleTimeViewWeek.bind(this);
@@ -33,12 +33,16 @@ class Dashboard extends Component{
         let start = moment().format('YYYY-MM-DD');
         let timeQuery = 'http://127.0.0.1:5000?start_date=' + start;
         console.log('start', start);
-        this.setState(() => {
-            return {
-                revision: this.state.revision + 1,
-                timeView : timeQuery
-            };
-        })
+        this.setState({
+            time: [],
+            hold: [],
+            latency: [],
+            revision: 0,
+            layout: {
+                datarevision: 0,
+            },
+            timeView : timeQuery
+        });
         this.state.layout.datarevision = this.state.revision + 1;
     }
 
@@ -49,6 +53,13 @@ class Dashboard extends Component{
         console.log('start', start, 'end', end);
         this.setState(() => {
             return {
+                time: [],
+                hold: [],
+                latency: [],
+                revision: 0,
+                layout: {
+                    datarevision: 0,
+                },
                 timeView : timeQuery
             };
         })
@@ -60,6 +71,13 @@ class Dashboard extends Component{
         console.log('start', start, 'end', end);
         this.setState(() => {
             return {
+                time: [],
+                hold: [],
+                latency: [],
+                revision: 0,
+                layout: {
+                    datarevision: 0,
+                },
                 timeView : timeQuery
             };
         })
@@ -71,6 +89,13 @@ class Dashboard extends Component{
         console.log('start', start, 'end', end);
         this.setState(() => {
             return {
+                time: [],
+                hold: [],
+                latency: [],
+                revision: 0,
+                layout: {
+                    datarevision: 0,
+                },
                 timeView : timeQuery
             };
         })
@@ -81,6 +106,13 @@ class Dashboard extends Component{
         console.log('end', end);
         this.setState(() => {
             return {
+                time: [],
+                hold: [],
+                latency: [],
+                revision: 0,
+                layout: {
+                    datarevision: 0,
+                },
                 timeView : timeQuery
             };
         })

@@ -179,6 +179,9 @@
 
   .toggleTime {
       display: flex;
+      background-color: #0B0C10;
+      /* width: 600px; */
+      padding: 40px;
   }
 
   input[type=text] {
@@ -248,4 +251,8 @@
   .layoutLinks {
     color:"#66FCF1";
     font-weight: "bold"
+  }
+
+  .demo-tabs {
+      /* border: 1px solid #1F2833; */
   }

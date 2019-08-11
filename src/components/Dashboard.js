@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Plot from 'react-plotly.js';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import moment from 'moment';
 
 
@@ -120,7 +118,9 @@ class Dashboard extends Component{
                     latency.push(obj.latency);
                 }
 
-                this.setState({ revision: this.state.revision + 1 });
+                this.setState({ 
+                    revision: this.state.revision + 1, 
+                });
                 layout.datarevision = this.state.revision + 1;
                 
             }, this.REFRESH_TIME);
@@ -138,11 +138,11 @@ class Dashboard extends Component{
                 <p>See your recent activity.</p>
 
                 <div className="toggleTime">
-                    <button className="button button1" id="DayView" value="Day" onClick = {this.handleToggleTimeViewDay}>Day</button>
-                    <button className="button button1" id="WeekView" value="Week" onClick = {this.handleToggleTimeViewWeek}>Week</button>
-                    <button className="button button1" id="MonthyView" value="Month" onClick = {this.handleToggleTimeViewMonth}>Month</button>
-                    <button className="button button1" id="YearView" value="Year" onClick = {this.handleToggleTimeViewYear}>Year</button>
-                    <button className="button button1" id="AllView" value="ALl" onClick = {this.handleToggleTimeViewAll}>All</button>
+                    <button className="toggleTimeButton" id="DayView" value="Day" onClick = {this.handleToggleTimeViewDay}>Day</button>
+                    <button className="toggleTimeButton" id="WeekView" value="Week" onClick = {this.handleToggleTimeViewWeek}>Week</button>
+                    <button className="toggleTimeButton" id="MonthyView" value="Month" onClick = {this.handleToggleTimeViewMonth}>Month</button>
+                    <button className="toggleTimeButton" id="YearView" value="Year" onClick = {this.handleToggleTimeViewYear}>Year</button>
+                    <button className="toggleTimeButton" id="AllView" value="ALl" onClick = {this.handleToggleTimeViewAll}>All</button>
                 </div>
 
                 <Plot

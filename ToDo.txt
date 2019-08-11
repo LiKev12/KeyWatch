@@ -1,0 +1,5 @@
+08/11/2019
+- Refactor CSS
+- Patient form card style
+- Confirmation page
+- Success page

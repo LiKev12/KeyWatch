@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Button from '@material-ui/core/Button';
+
 
 export class FormConfirm extends Component {
     continue = e => {
@@ -17,10 +15,42 @@ export class FormConfirm extends Component {
 
     render() {
         console.log("FormConfirm");
-        const { values: { firstName, lastName, email, age, gender, bio} } = this.props;
+        const { values } = this.props;
+        const  { firstName, lastName, email, dobMonth, dobDay, dobYear, gender, education } = values;
         return (
-            <div>
-                Confirm Page
+            <div id="FormUserDetails">
+                <div className="confirmationBody">
+                    <label className="confirmationLabel"><b>First Name:</b></label>
+                    {firstName}
+                    <br></br><br></br>
+                    <label className="confirmationLabel"><b>Last Name:</b></label>
+                    {lastName}
+                    <br></br><br></br>
+                    <label className="confirmationLabel"><b>Email:</b></label>
+                    {email}
+                    <br></br><br></br>
+                    <label className="confirmationLabel"><b>Date of Birth:</b></label>
+                    {dobMonth + '/' + dobDay + '/' + dobYear}
+                    <br></br><br></br>
+                    <label className="confirmationLabel"><b>Gender:</b></label>
+                    {gender}
+                    <br></br><br></br>
+                    <label className="confirmationLabel"><b>Highest Level of Education:</b></label>
+                    {education}
+                    <br></br><br></br>
+                </div>
+                <div className="formTwoButtons">
+                    <button
+                        className="patientFormButton"
+                        onClick={this.continue}>
+                        Continue
+                    </button>                    
+                    <button
+                        className="patientFormButton"
+                        onClick={this.back}>
+                        Back
+                    </button>
+                </div>            
             </div>
         )
     }

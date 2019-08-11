@@ -10,7 +10,9 @@ export class PatientForm extends Component {
         firstName: '',
         lastName: '',
         email: '',
-        dob: '',
+        dobMonth: '',
+        dobDay: '',
+        dobYear: '',
         gender: '',
         education: ''
     }
@@ -33,16 +35,20 @@ export class PatientForm extends Component {
 
     // Handle fields change
     handleChange = input => e => {
-        // console.log(input);
-        // console.log(e.target.value);
+        e.preventDefault();
+
         console.log(input, [input], e.target.value);
+        if (input === 'dobMonth') {
+            console.log('dobby')
+        }
         this.setState({[input]: e.target.value});
     }
 
+
     render() {
         const { step } = this.state;
-        const { firstName, lastName, email, dob, gender, education} = this.state;
-        const values = { firstName, lastName, email, dob, gender, education};
+        const { firstName, lastName, email, dobMonth, dobDay, dobYear, gender, education } = this.state;
+        const values = { firstName, lastName, email, dobMonth, dobDay, dobYear, gender, education };
         switch(step) {
             case 1:
                 return (
@@ -58,6 +64,7 @@ export class PatientForm extends Component {
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange = {this.handleChange}
+                        handleCheck = {this.handleCheck}
                         values={values}
                 />
                 )
@@ -71,7 +78,14 @@ export class PatientForm extends Component {
                 )
             case 4:
                 return <FormSuccess />
-
+            default:
+                return (
+                    <FormUserDetails
+                    nextStep={this.nextStep}
+                    handleChange = {this.handleChange}
+                    values={values}
+                />
+                )
         }
     }
 }

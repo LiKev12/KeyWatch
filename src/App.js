@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Layout, Header, Navigation, Drawer, Content, Chip, Textfield } from 'react-mdl';
+import { Layout, Header, Navigation, Drawer, Content } from 'react-mdl';
 // import Dashboard from './components/Dashboard';
 import { Link } from 'react-router-dom';
 import Main from './components/Main';

@@ -25,7 +25,7 @@ export class FormUserDetails extends Component {
     render() {
         // console.log("FormUserDetails");
         const { values, handleChange } = this.props;
-        const { firstName, lastName, email, dob, gender, education } = values;
+        const { firstName, lastName, email} = values;
         return (
             <div id="FormUserDetails">
                 <div id="FormUserDetailsInput">
@@ -36,7 +36,7 @@ export class FormUserDetails extends Component {
                     value={firstName} 
                     name='firstName' 
                     placeholder = 'First Name'
-                    onChange={this.props.handleChange('firstName')}/>
+                    onChange={handleChange('firstName')}/>
                     <br></br>
 
                     <label>Last Name:</label>
@@ -46,7 +46,7 @@ export class FormUserDetails extends Component {
                     value={lastName} 
                     name='lastName' 
                     placeholder = 'Last Name'
-                    onChange={this.props.handleChange('lastName')}/>
+                    onChange={handleChange('lastName')}/>
                     <br></br>
 
                     <label>Email:</label>
@@ -56,11 +56,10 @@ export class FormUserDetails extends Component {
                     value={email} 
                     name='email' 
                     placeholder = 'Email'
-                    onChange={this.props.handleChange('email')}/>
+                    onChange={handleChange('email')}/>
                     <br></br>
                     <button
-                        primary={true}
-                        className="button button1"
+                        className="patientFormButton"
                         onClick={this.continue}>
                         Continue
                     </button>

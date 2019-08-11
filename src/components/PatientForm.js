@@ -37,7 +37,7 @@ export class PatientForm extends Component {
     handleChange = input => e => {
         e.preventDefault();
 
-        console.log(input, [input], e.target.value);
+        // console.log(input, [input], e.target.value);
         if (input === 'dobMonth') {
             console.log('dobby')
         }

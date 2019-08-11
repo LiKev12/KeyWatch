@@ -11,7 +11,7 @@ function App() {
       {/* Uses a header that scrolls with the text, rather than staying locked at the top */}
       <div className="demo-big-content">
         <Layout>
-            <Header className="header-color" style={{color:"#66FCF1"}} title= 'Welcome to KeyWatch' scroll>
+            <Header className="header-color" style={{color:"#66FCF1"}} title= {<a href="localhost:3000/dashboard">Welcome to KeyWatch</a>} scroll>
                 <Navigation>
                     <Link to="/"  style={{color:"#66FCF1", fontWeight: "bold"}}>Dashboard</Link>
                     <Link to="/patientform" style={{color:"#66FCF1", fontWeight: "bold"}}>Patient Form</Link>

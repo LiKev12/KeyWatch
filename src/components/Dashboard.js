@@ -138,11 +138,11 @@ class Dashboard extends Component{
                 <p>See your recent activity.</p>
 
                 <div className="toggleTime">
-                    <button className="button button2" id="DayView" value="Day" onClick = {this.handleToggleTimeViewDay}>Day</button>
-                    <button className="button button2" id="WeekView" value="Week" onClick = {this.handleToggleTimeViewWeek}>Week</button>
-                    <button className="button button2" id="MonthyView" value="Month" onClick = {this.handleToggleTimeViewMonth}>Month</button>
-                    <button className="button button2" id="YearView" value="Year" onClick = {this.handleToggleTimeViewYear}>Year</button>
-                    <button className="button button2" id="AllView" value="ALl" onClick = {this.handleToggleTimeViewAll}>All</button>
+                    <button className="button button1" id="DayView" value="Day" onClick = {this.handleToggleTimeViewDay}>Day</button>
+                    <button className="button button1" id="WeekView" value="Week" onClick = {this.handleToggleTimeViewWeek}>Week</button>
+                    <button className="button button1" id="MonthyView" value="Month" onClick = {this.handleToggleTimeViewMonth}>Month</button>
+                    <button className="button button1" id="YearView" value="Year" onClick = {this.handleToggleTimeViewYear}>Year</button>
+                    <button className="button button1" id="AllView" value="ALl" onClick = {this.handleToggleTimeViewAll}>All</button>
                 </div>
 
                 <Plot

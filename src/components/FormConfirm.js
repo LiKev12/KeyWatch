@@ -19,32 +19,36 @@ export class FormConfirm extends Component {
         console.log("FormConfirm");
         const { values: { firstName, lastName, email, age, gender, bio} } = this.props;
         return (
-                <React.Fragment>
-                    <List>
-                        <ListItem primaryText="First Name" secondaryText = { firstName } />
-                        <ListItem primaryText="Last Name" secondaryText = { lastName } />
-                        <ListItem primaryText="Email" secondaryText = { email } />
-                        <ListItem primaryText="Age" secondaryText = { age } />
-                        <ListItem primaryText="Gender" secondaryText = { gender } />
-                        <ListItem primaryText="Bio" secondaryText = { bio } />
-                    </List>
-                    <br />
-                    <Button
-                        label="Confirm & Continue"
-                        primary={true}
-                        style={{margin:50}}
-                        onClick={this.continue}
-                    />
-                    <Button
-                        label="Back"
-                        primary={false}
-                        style={{margin:50}}
-                        onClick={this.back}
-                    />
-                </React.Fragment>
+            <div>
+                Confirm Page
+            </div>
         )
     }
 
 }
 
 export default FormConfirm;
+
+// <React.Fragment>
+// <List>
+//     <ListItem primaryText="First Name" secondaryText = { firstName } />
+//     <ListItem primaryText="Last Name" secondaryText = { lastName } />
+//     <ListItem primaryText="Email" secondaryText = { email } />
+//     <ListItem primaryText="Age" secondaryText = { age } />
+//     <ListItem primaryText="Gender" secondaryText = { gender } />
+//     <ListItem primaryText="Bio" secondaryText = { bio } />
+// </List>
+// <br />
+// <Button
+//     label="Confirm & Continue"
+//     primary={true}
+//     style={{margin:50}}
+//     onClick={this.continue}
+// />
+// <Button
+//     label="Back"
+//     primary={false}
+//     style={{margin:50}}
+//     onClick={this.back}
+// />
+// </React.Fragment>

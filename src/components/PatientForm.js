@@ -10,9 +10,9 @@ export class PatientForm extends Component {
         firstName: '',
         lastName: '',
         email: '',
-        age: '',
+        dob: '',
         gender: '',
-        bio: ''
+        education: ''
     }
 
     // Proceed to next step
@@ -27,19 +27,22 @@ export class PatientForm extends Component {
     prevStep = () => {
         const { step } = this.state;
         this.setState({
-            step: step + 1
+            step: step - 1
         });
     }
 
     // Handle fields change
     handleChange = input => e => {
+        // console.log(input);
+        // console.log(e.target.value);
+        console.log(input, [input], e.target.value);
         this.setState({[input]: e.target.value});
     }
 
     render() {
         const { step } = this.state;
-        const { firstName, lastName, email, age, gender, bio} = this.state;
-        const values = { firstName, lastName, email, age, gender, bio};
+        const { firstName, lastName, email, dob, gender, education} = this.state;
+        const values = { firstName, lastName, email, dob, gender, education};
         switch(step) {
             case 1:
                 return (

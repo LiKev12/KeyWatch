@@ -1,5 +1,7 @@
-08/11/2019
+08/18/2019
 - Refactor CSS
 - Patient form card style
 - Confirmation page
 - Success page
+- User info in database (Auth0 or PostgresQL?)
+- 

@@ -4,6 +4,7 @@ import FormPersonalDetails from './FormPersonalDetails';
 import FormConfirm from './FormConfirm';
 import FormSuccess from './FormSuccess';
 
+
 export class PatientForm extends Component {
     state = {
         step: 1,

@@ -23,7 +23,6 @@ export class FormUserDetails extends Component {
     }
 
     render() {
-        // console.log("FormUserDetails");
         const { values, handleChange } = this.props;
         const { firstName, lastName, email} = values;
         return (

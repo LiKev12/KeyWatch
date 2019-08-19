@@ -94,6 +94,7 @@ export default function PatientForm() {
     firstName: "John",
     lastName: "Doe",
     dob: "1970-01-01",
+    email: "john_doe@gmail.com",
     multiline: "Controlled",
     gender: "Male",
     education: "High School"
@@ -126,8 +127,9 @@ export default function PatientForm() {
           <TextField
             id="standard-with-placeholder"
             label="Email"
-            placeholder="your_email@gmail.com"
+            value={values.email}
             className={classes.textField}
+            onChange={handleChange("email")}
             margin="normal"
           />
         </div>
@@ -135,6 +137,7 @@ export default function PatientForm() {
           <TextField
             id="standard-name"
             label="Birthday"
+            placeholder="john_doe@gmail.com"
             type="date"
             value={values.dob}
             className={classes.textField2}

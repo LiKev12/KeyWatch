@@ -1,13 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
+import { Redirect } from "react-router-dom";
 import { useAuth0 } from "../react-auth0-wrapper";
-
-import { Link, Redirect } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import About from './About';
-import { Layout, Header, Navigation, Drawer, Content } from "react-mdl";
-import Dashboard from "./Dashboard";
-import Main from "./Main";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   container: {
@@ -46,8 +41,8 @@ const useStyles = makeStyles({
 
 });
 
-const NavBar = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+const LoginPage = () => {
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
   const classes = useStyles();
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />;
@@ -58,7 +53,7 @@ const NavBar = () => {
         {!isAuthenticated && (
           <div>
             <div className={classes.loginAndRegister}>
-                <div class="typewriter">
+                <div className="typewriter">
                 <h1>Welcome to KeyWatch</h1>
                 </div>
                 <Button
@@ -91,31 +86,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
-
-// <div className="demo-big-content">
-// <Layout>
-//     <Header className="header-color" style={{color:"#66FCF1"}} title= {<a href="localhost:3000/dashboard">Welcome to KeyWatch</a>} scroll>
-//         <Navigation>
-//             <Link to="/dashboard"  style={{color:"#66FCF1", fontWeight: "bold"}}>Dashboard</Link>
-//             <Link to="/patientform" style={{color:"#66FCF1", fontWeight: "bold"}}>Patient Form</Link>
-//             <Link to="/patientview" style={{color:"#66FCF1", fontWeight: "bold"}}>Patient View</Link>
-//             <Link to="/doctorview" style={{color:"#66FCF1", fontWeight: "bold"}}>Doctor View</Link>
-//             <Link to="/profile">Profile</Link>
-//         </Navigation>
-//     </Header>
-//     <Drawer title="KeyWatch" style={{color:"#66FCF1", backgroundColor:"#1F2833"}}>
-//         <Navigation>
-//             <Link to="/dashboard" style={{color:"#66FCF1", fontWeight: "bold"}}>Dashboard</Link>
-//             <Link to="/patientform" style={{color:"#66FCF1", fontWeight: "bold"}}>Patient Form</Link>
-//             <Link to="/patientview" style={{color:"#66FCF1", fontWeight: "bold"}}>Patient View</Link>
-//             <Link to="/doctorview" style={{color:"#66FCF1", fontWeight: "bold"}}>Doctor View</Link>
-//             <Link to="/profile">Profile</Link>
-//         </Navigation>
-//     </Drawer>
-//     <Content>
-//         <div className="page-content" />
-//         <Main/>
-//     </Content>
-// </Layout>
-// </div>
+export default LoginPage;

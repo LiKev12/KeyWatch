@@ -10,7 +10,7 @@ import Loading from "./components/Loading";
 
 function App() {
 
-  const { loading, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { loading, isAuthenticated, logout } = useAuth0();
 
   if (loading) {
     return (
@@ -28,9 +28,9 @@ function App() {
                         <Navigation>
                             <Link to="/dashboard"  style={{color:"#66FCF1", fontWeight: "bold"}}>Dashboard</Link>
                             <Link to="/patientform" style={{color:"#66FCF1", fontWeight: "bold"}}>Patient Form</Link>
-                            <Link to="/patientview" style={{color:"#66FCF1", fontWeight: "bold"}}>Patient View</Link>
-                            <Link to="/doctorview" style={{color:"#66FCF1", fontWeight: "bold"}}>Doctor View</Link>
-                            <Link onClick={() => logout()} style={{color:"#66FCF1", fontWeight: "bold"}}>Log Out</Link>
+                            {/*<Link to="/patientview" style={{color:"#66FCF1", fontWeight: "bold"}}>Patient View</Link>*/}
+                            {/*<Link to="/doctorview" style={{color:"#66FCF1", fontWeight: "bold"}}>Doctor View</Link>*/}
+                            <Link to="/login" onClick={() => logout()} style={{color:"#66FCF1", fontWeight: "bold"}}>Log Out</Link>
                         </Navigation>
                     </Header>
                     <Drawer title="KeyWatch" style={{color:"#66FCF1", backgroundColor:"#1F2833"}}>
@@ -39,7 +39,7 @@ function App() {
                             <Link to="/patientform" style={{color:"#66FCF1", fontWeight: "bold"}}>Patient Form</Link>
                             <Link to="/patientview" style={{color:"#66FCF1", fontWeight: "bold"}}>Patient View</Link>
                             <Link to="/doctorview" style={{color:"#66FCF1", fontWeight: "bold"}}>Doctor View</Link>
-                            <Link onClick={() => logout()} style={{color:"#66FCF1", fontWeight: "bold"}}>Log Out</Link>
+                            <Link to="/login" onClick={() => logout()} style={{color:"#66FCF1", fontWeight: "bold"}}>Log Out</Link>
                         </Navigation>
                     </Drawer>
                 </div>

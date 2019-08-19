@@ -16,7 +16,7 @@ export default function Loading() {
     const classes = useStyles();
     return (
         <div className={classes.container}>
-            <div class="loader"></div>
+            <div className="loader"></div>
         </div>
     )
 }

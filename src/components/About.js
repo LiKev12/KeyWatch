@@ -1,7 +1,4 @@
-import React, { Component } from "react";
-import { useAuth0 } from "../react-auth0-wrapper";
-
-import { Link, Redirect } from "react-router-dom";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import TeamPic from "../images/teamAward.jpg";
